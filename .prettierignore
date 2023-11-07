@@ -1,0 +1,6 @@
+dist/
+temp/
+pnpm-lock.yaml
+pnpm-workspace.yaml
+packages/*/CHANGELOG.md
+LICENSE.md

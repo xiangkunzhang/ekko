@@ -1,0 +1,41 @@
+{
+  "name": "create-ekko",
+  "version": "0.0.1",
+  "type": "module",
+  "bin": {
+    "create-ekko": "index.js"
+  },
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "index.js",
+    "template-*",
+    "dist"
+  ],
+  "author": {
+    "name": "ekko",
+    "email": "zxk_q@qq.com"
+  },
+  "engines": {
+    "node": "^18.0.0 || >=20.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/minimist": "^1.2.4",
+    "@types/node": "^18",
+    "@types/prompts": "^2.4.7",
+    "commander": "^11.1.0",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
+    "unbuild": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiangkunzhang/ekko.git"
+  }
+}

@@ -1,0 +1,20 @@
+semi: false # 分号
+singleQuote: true # 单引号
+printWidth: 120
+useTabs: false
+proseWrap: never
+endOfLine: lf
+arrowParens: avoid
+quoteProps: as-needed
+bracketSpacing: true
+trailingComma: none
+insertPragma: false
+requirePragma: false
+overrides:
+  - files: "*.json5"
+    options:
+      singleQuote: false
+      quoteProps: preserve
+  - files: "*.yml"
+    options:
+      singleQuote: false

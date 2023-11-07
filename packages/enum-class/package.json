@@ -1,0 +1,43 @@
+{
+  "name": "@ekko/enum-class",
+  "version": "0.0.1",
+  "type": "module",
+  "author": {
+    "name": "ekko",
+    "email": "zxk_q@qq.com"
+  },
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "main": "./dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "devDependencies": {
+    "unbuild": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@types/node": "^18.0.0 || >=20.0.0",
+    "typescript": ">=5.2"
+  },
+  "license": "MIT",
+  "keywords": ["typescript", "ts", "enum"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiangkunzhang/ekko.git"
+  }
+}

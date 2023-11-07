@@ -1,0 +1,36 @@
+{
+  "name": "test-element",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint -c ./.eslintrc.yaml ./src",
+    "lint-fix": "eslint -c ./.eslintrc.yaml ./src --fix"
+  },
+  "dependencies": {
+    "element-plus": "^2.4.1",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5",
+    "axios": "^1.6.0",
+    "pinia": "^2.1.7",
+    "@element-plus/icons-vue": "^2.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "sass": "^1.69.5",
+    "unplugin-auto-import": "^0.16.7",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^4.4.5",
+    "eslint": "^8.52.0",
+    "eslint-plugin-vue": "^9.18.1",
+    "eslint-define-config": "^1.24.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3",
+    "vite-plugin-html": "^3.2.0",
+    "vue-eslint-parser": "^9.3.2"
+  }
+}
