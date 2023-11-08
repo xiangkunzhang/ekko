@@ -1,11 +1,11 @@
-# @ekko/enum-class
+# ekko-enum
 
 枚举帮助方法
 
 ## 安装
 
 ```nodemon
-npm install @ekko/enum-class
+npm install ekko-enum
 ```
 
 ## 使用
@@ -13,7 +13,7 @@ npm install @ekko/enum-class
 - 引用
 
 ```javascript
-import { defineEnum} from '@ekko/enum-class'
+import { defineEnum} from 'ekko-enum'
 ```
 
 - 初始化
