@@ -20,6 +20,12 @@ const program = new Command()
 
 const cwd = process.cwd()
 
+/**
+ * Prompts
+ * @param {string} name - project name
+ * @param {string} argTemplate - template name
+ * @param {string} configTargetPath - target path
+ */
 const doPrompts = async (name: string, argTemplate: string, configTargetPath: string) => {
   let result: prompts.Answers<'projectName' | 'overwrite' | 'packageName' | 'framework' | 'variant'>
   let targetPath = configTargetPath

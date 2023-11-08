@@ -1,5 +1,8 @@
 import { blue, cyan, green, yellow } from 'kolorist'
 
+/**
+ * 模板数组
+ */
 const FRAMEWORKS: Framework[] = [
   {
     name: 'vue',
@@ -37,8 +40,14 @@ const FRAMEWORKS: Framework[] = [
   }
 ]
 
+/**
+ * 模板名称数组
+ */
 const TEMPLATES = FRAMEWORKS.map(f => (f.variants && f.variants.map(v => v.name)) || [f.name]).flat()
 
+/**
+ * 重命名文件列表
+ */
 const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
   _eslintignore: '.eslintignore',
@@ -47,6 +56,9 @@ const renameFiles: Record<string, string | undefined> = {
   '_prettierrc.yaml': '.prettierrc.yaml'
 }
 
+/**
+ * 默认项目名称
+ */
 const defaultProjectName = 'ekko-project'
 
 export { FRAMEWORKS, TEMPLATES, renameFiles, defaultProjectName }

@@ -1,15 +1,24 @@
+/**
+ * @description: 枚举结构
+ */
 declare interface Enumerate<T> {
   value: string | number | boolean
   label: string
   other?: T | any
 }
 
+/**
+ * @description: 枚举模块
+ */
 declare interface EnumerateModule<T> {
   name: string
   enums: Enumerate<T>[]
   extendFunc?: Record<string, (arg0: EnumerateModule<T>) => any>
 }
 
+/**
+ * @description: 枚举对象初始结构
+ */
 export const enumAppObj: Record<string, EnumerationPlugin<any>> = {}
 
 class EnumerationPlugin<T> {
@@ -140,15 +149,24 @@ class EnumerationPlugin<T> {
 
 type mapFunc = <T>(value: Enumerate<T>, index: number, array: Enumerate<T>[]) => Enumerate<T>
 
+/**
+ * 定义枚举
+ * @param {string} name - 枚举名称
+ * @param {Enumerate[]} enums - 枚举数据
+ * @return { ()=> EnumerationPlugin } - 枚举对象函数
+ */
 export const defineEnum = <T>(
   name: string | EnumerateModule<T>,
   enums?: Enumerate<T>[]
 ): (() => EnumerationPlugin<T>) => {
   const enumeration = new EnumerationPlugin<T>(name, enums)
   enumerationApp[enumeration.name] = enumeration
-  return () => new EnumerationPlugin<T>(name, enums)
+  return () => enumeration
 }
 
+/**
+ * 全局枚举对象
+ */
 export const enumerationApp = new Proxy(enumAppObj, {
   set(obj, prop, value) {
     const key = value.name || prop
@@ -157,7 +175,11 @@ export const enumerationApp = new Proxy(enumAppObj, {
   }
 })
 
-export const createEnumeration = () => {
+/**
+ * 初始化枚举插件
+ * @return {Object}
+ */
+export const createEnumeration = (): object => {
   return {
     enumerations: enumerationApp,
     install(app: any, options: any) {
