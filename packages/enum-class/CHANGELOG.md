@@ -1,7 +1,7 @@
-# @ekko/enum-class
+# ekko-enum
 
 ## 0.0.1
 
 ### Major Changes
 
-- test release
+- release first version

@@ -9,10 +9,10 @@
 > Frontend Tooling
 
 ## Packages
-|     Package      |                                Version                                |
-|:----------------:|:---------------------------------------------------------------------:|
-| [create-ekko](#) | [![create-ekko version](https://img.shields.io/badge/v0.0.1-bule)](#) |
-| [@ekko-enum](#)  | [![@ekko-enum version](https://img.shields.io/badge/v0.0.1-bule)](#)  |
+|                         Package                          |                                                                        Version                                                                        |
+|:--------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [create-ekko](https://www.npmjs.com/package/create-ekko) | [![create-ekko version](https://img.shields.io/badge/v0.0.1-bule)](https://github.com/xiangkunzhang/ekko/blob/main/packages/create-ekko/CHANGELOG.md) |
+|  [@ekko-enum](https://www.npmjs.com/package/ekko-enum)   |  [![@ekko-enum version](https://img.shields.io/badge/v0.0.1-bule)](https://github.com/xiangkunzhang/ekko/blob/main/packages/enum-class/CHANGELOG.md)  |
 
 ## License
 

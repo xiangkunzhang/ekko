@@ -1,7 +1,7 @@
 # create-ekko
 
-## 1.0.0
+## 0.0.1
 
 ### Major Changes
 
-- test release
+- release first version
