@@ -1,7 +1,8 @@
 {
-  "name": "@ekko/enum-class",
+  "name": "ekko-enum",
   "version": "0.0.1",
   "type": "module",
+  "private": false,
   "author": {
     "name": "ekko",
     "email": "zxk_q@qq.com"
@@ -34,7 +35,11 @@
     "typescript": ">=5.2"
   },
   "license": "MIT",
-  "keywords": ["typescript", "ts", "enum"],
+  "keywords": [
+    "typescript",
+    "ts",
+    "enum"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xiangkunzhang/ekko.git"
