@@ -14,6 +14,7 @@
   "files": [
     "index.js",
     "template-*",
+    "template-*/**/*",
     "dist"
   ],
   "author": {
@@ -24,6 +25,7 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "license": "MIT",
+  "homepage": "https://github.com/xiangkunzhang/ekko/tree/main/packages/create-ekko#readme",
   "devDependencies": {
     "@types/minimist": "^1.2.4",
     "@types/node": "^18",
