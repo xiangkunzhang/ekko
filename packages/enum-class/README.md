@@ -25,15 +25,9 @@ import { defineEnum} from 'ekko-enum'
     { value: 2, label: 'test2' },
     { value: 3, label: 'test3', other: { a: ''} }
   ]
- const useCategoryEnum = defineEnum('category', enums)
-```
-
+ const useCategoryEnum = defineEnum(name, enums)
 或
-
-```javascript
- const useCategoryEnum = defineEnum({
-    name:'category', enums
-  })
+ const useCategoryEnum = defineEnum({ name, enums })
 ```
 
 - 使用
@@ -44,7 +38,7 @@ const label=categoryEnum.string(1)
 console.log(label)
 ```
 
-输出
+- 输出
 
 >test1
 
