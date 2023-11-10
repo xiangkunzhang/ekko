@@ -22,7 +22,7 @@ declare interface EnumerateModule<T> {
 export const enumAppObj: Record<string, EnumerationPlugin<any>> = {}
 
 class EnumerationPlugin<T> {
-  private readonly _name: string
+  private _name: string
   private readonly _enums: Enumerate<T>[];
 
   [k: string]: any
@@ -48,6 +48,10 @@ class EnumerationPlugin<T> {
 
   get name(): string {
     return this._name
+  }
+
+  set name(v: string) {
+    this._name = v
   }
 
   get enums(): Enumerate<T>[] {
@@ -167,8 +171,8 @@ export const defineEnum = <T>(
 /**
  * 全局枚举对象
  */
-export const enumerationApp = new Proxy(enumAppObj, {
-  set(obj, prop, value) {
+export const enumerationApp:Record<string, EnumerationPlugin<any>> = new Proxy(enumAppObj, {
+  set(obj: Record<string, EnumerationPlugin<any>>, prop: string, value: EnumerationPlugin<any>) {
     const key = value.name || prop
     value.name = key
     return Reflect.set(obj, key, value, obj)
