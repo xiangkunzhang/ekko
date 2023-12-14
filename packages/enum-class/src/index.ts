@@ -132,6 +132,12 @@ class EnumerationPlugin<T> {
     return this.enums || []
   }
 
+  other(value: string | number | boolean | undefined): any {
+    return this.enums.find((item: Enumerate<T>) => {
+      return item.value.toString() === value?.toString()
+    })?.other
+  }
+
   others(): any[] {
     return this.enums.reduce((result: string[], item: Enumerate<T>) => {
       result.push(item.other || {})
@@ -171,7 +177,7 @@ export const defineEnum = <T>(
 /**
  * 全局枚举对象
  */
-export const enumerationApp:Record<string, EnumerationPlugin<any>> = new Proxy(enumAppObj, {
+export const enumerationApp: Record<string, EnumerationPlugin<any>> = new Proxy(enumAppObj, {
   set(obj: Record<string, EnumerationPlugin<any>>, prop: string, value: EnumerationPlugin<any>) {
     const key = value.name || prop
     value.name = key
@@ -183,10 +189,13 @@ export const enumerationApp:Record<string, EnumerationPlugin<any>> = new Proxy(e
  * 初始化枚举插件
  * @return {Object}
  */
-export const createEnumeration = (): object => {
+export const createEnumeration = (): {
+  enumerations: Record<string, EnumerationPlugin<any>>
+  install: (app: any, options?: any) => void
+} => {
   return {
     enumerations: enumerationApp,
-    install(app: any, options: any) {
+    install(app: any, options?: any) {
       app.config.globalProperties.$enum = enumerationApp
       app.provide('enumeration', enumerationApp)
     }
