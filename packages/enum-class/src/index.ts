@@ -22,18 +22,28 @@ declare interface EnumerateModule<T> {
 export const enumAppObj: Record<string, EnumerationPlugin<any>> = {}
 
 class EnumerationPlugin<T> {
-  private _name: string
-  private readonly _enums: Enumerate<T>[];
-
   [k: string]: any
+  private _name: string
+  private readonly _enums: Enumerate<T>[]
+  private _Enum: Record<string, any> = {}
 
   constructor(param: string | EnumerateModule<T>, enums?: Enumerate<T>[]) {
     if (typeof param === 'string') {
       this._name = param
       this._enums = enums || []
+      if (enums) {
+        enums.forEach((item: Enumerate<T>) => {
+          this._Enum[item.label] = item.value
+        })
+      }
     } else {
       this._name = param.name
       this._enums = param.enums
+      if (param.enums) {
+        param.enums.forEach((item: Enumerate<T>) => {
+          this._Enum[item.label] = item.value
+        })
+      }
       if (param.extendFunc) {
         Object.keys(param.extendFunc).forEach((key: string) => {
           this[key] = () => {
@@ -56,6 +66,10 @@ class EnumerationPlugin<T> {
 
   get enums(): Enumerate<T>[] {
     return this._enums
+  }
+
+  get Enum(): Record<string, any> {
+    return this._Enum
   }
 
   /**
@@ -196,8 +210,10 @@ export const createEnumeration = (): {
   return {
     enumerations: enumerationApp,
     install(app: any, options?: any) {
-      app.config.globalProperties.$enum = enumerationApp
-      app.provide('enumeration', enumerationApp)
+      if (app.provide && app.config && app.config.globalProperties) {
+        app.config.globalProperties.$enum = enumerationApp
+        app.provide('enumeration', enumerationApp)
+      }
     }
   }
 }
