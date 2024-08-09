@@ -1,11 +1,21 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  <div>Home Page</div>
+  <div class="page-container">
+    <h2>Home Page</h2>
+
+    <HelloWorld msg="Vite + Vue + Ts" />
+  </div>
 </template>
 
-<style scoped lang="scss">
+<script setup lang="ts">
+import HelloWorld from '@/components/HelloWorld.vue'
+</script>
 
+<style scoped lang="scss">
+.page-container {
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  font-size: large;
+  padding-top: 100px;
+}
 </style>
