@@ -5,16 +5,57 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
+    "preview": "vite preview",
+    "lint-tsc": "vue-tsc --noEmit --skipLibCheck",
+    "husky-init": "husky install"
   },
   "dependencies": {
-    "vue": "^3.3.4"
+    "vue": "^3.4.31",
+    "axios": "^1.7.3",
+    "pinia": "^2.2.0",
+    "vue-router": "^4.4.2",
+    "@vueuse/core": "^10.11.0",
+    "crypto-js": "^4.2.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.4.0",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^20",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
     "typescript": "^5.2.2",
-    "vite": "^5.0.0-beta.11",
-    "vue-tsc": "^1.8.19"
-  }
+    "sass": "^1.77.8",
+    "vite": "^5.3.4",
+    "vue-tsc": "^2.0.24",
+    "eslint": "^9.8.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-vue": "^9.27.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-html": "^3.2.2",
+    "vue-eslint-parser": "^9.4.3",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,tsx}": [
+      "eslint -c ./.eslintrc.js ./src --fix",
+      "eslint -c ./.eslintrc.js ./src",
+      "git add ."
+    ]
+  },
+  "engines": {
+    "node": "^18 || ^20",
+    "npm": ">= 10",
+    "pnpm": "^8"
+  },
+  "packageManager": "pnpm@8.15.8"
 }

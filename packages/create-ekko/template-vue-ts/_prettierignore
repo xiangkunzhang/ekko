@@ -1,0 +1,12 @@
+.idea
+*.iml
+out
+gen
+.local
+.output.js
+
+**/*.svg
+**/*.sh
+/node_modules/**
+/dist/*
+/public/*

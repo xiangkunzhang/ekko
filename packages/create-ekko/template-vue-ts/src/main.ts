@@ -1,5 +1,7 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import App from './config/app'
 
-createApp(App).mount('#app')
+console.group('CareFinder Admin Panel')
+console.table(import.meta.env)
+console.groupEnd()
+App.mount('#app')
+
