@@ -1,5 +1,11 @@
 # create-ekko
 
+## 0.1.0
+
+### Minor Changes
+
+- new vue-ts template
+
 ## 0.0.5
 
 ### Patch Changes
