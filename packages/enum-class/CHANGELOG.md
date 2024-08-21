@@ -1,5 +1,11 @@
 # ekko-enum
 
+## 0.2.0
+
+### Minor Changes
+
+- add export
+
 ## 0.1.1
 
 ### Patch Changes
