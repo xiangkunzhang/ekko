@@ -21,7 +21,7 @@ declare interface EnumerateModule<T> {
  */
 export const enumAppObj: Record<string, EnumerationPlugin<any>> = {}
 
-class EnumerationPlugin<T> {
+export class EnumerationPlugin<T> {
   [k: string]: any
   private _name: string
   private readonly _enums: Enumerate<T>[]
@@ -196,16 +196,26 @@ export const enumerationApp: Record<string, EnumerationPlugin<any>> = new Proxy(
     const key = value.name || prop
     value.name = key
     return Reflect.set(obj, key, value, obj)
+  },
+  get(target: Record<string, EnumerationPlugin<any>>, p: string | symbol, receiver: any): any {
+    if (Reflect.has(target, p)) {
+      return Reflect.get(target, p, receiver)
+    } else {
+      return {}
+    }
   }
 })
+
+export type Enumerates<T> = Record<string, EnumerationPlugin<T>>
 
 /**
  * 初始化枚举插件
  * @return {Object}
  */
 export const createEnumeration = (): {
-  enumerations: Record<string, EnumerationPlugin<any>>
+  enumerations: Enumerates<any>
   install: (app: any, options?: any) => void
+  get: <T>(name: string) => EnumerationPlugin<T>
 } => {
   return {
     enumerations: enumerationApp,
@@ -214,6 +224,9 @@ export const createEnumeration = (): {
         app.config.globalProperties.$enum = enumerationApp
         app.provide('enumeration', enumerationApp)
       }
+    },
+    get<T>(name: string): EnumerationPlugin<T> {
+      return enumerationApp[name]
     }
   }
 }
